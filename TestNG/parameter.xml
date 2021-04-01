@@ -1,0 +1,12 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="Suite" parallel="false">
+	<test name="Test">
+	<parameter name="driverPath" value="C:\\Users\\Harshitha.Shivappa\\workspace\\Training\\lib\\chromedriver.exe"></parameter>
+	<parameter name="browserName" value="chrome"></parameter>
+		
+		<classes>
+			<class name="com.atmecs.testNG.AnnotationParameter"></class>
+		</classes>
+	</test>
+</suite>
