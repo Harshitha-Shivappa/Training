@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="0" total="4" passed="4">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Suite" duration-ms="28765" started-at="2021-04-12T13:36:47Z" finished-at="2021-04-12T13:37:16Z">
+    <groups>
+    </groups>
+    <test name="Test" duration-ms="28765" started-at="2021-04-12T13:36:47Z" finished-at="2021-04-12T13:37:16Z">
+      <class name="com.atmecs.konakart.testscript.TestKonaKart">
+        <test-method status="PASS" signature="intitailizeBrowser(java.lang.String)[pri:0, instance:com.atmecs.konakart.testscript.TestKonaKart@6f7fd0e6]" name="intitailizeBrowser" is-config="true" duration-ms="3105" started-at="2021-04-12T13:36:47Z" finished-at="2021-04-12T13:36:50Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- intitailizeBrowser -->
+        <test-method status="PASS" signature="invokeBrowser()[pri:0, instance:com.atmecs.konakart.testscript.TestKonaKart@6f7fd0e6]" name="invokeBrowser" is-config="true" duration-ms="7124" started-at="2021-04-12T13:36:50Z" finished-at="2021-04-12T13:36:58Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- invokeBrowser -->
+        <test-method status="PASS" signature="clickImage()[pri:0, instance:com.atmecs.konakart.testscript.TestKonaKart@6f7fd0e6]" name="clickImage" duration-ms="2130" started-at="2021-04-12T13:36:58Z" finished-at="2021-04-12T13:37:00Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- clickImage -->
+        <test-method status="PASS" signature="validateHeaders(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:1, instance:com.atmecs.konakart.testscript.TestKonaKart@6f7fd0e6]" name="validateHeaders" duration-ms="3242" started-at="2021-04-12T13:37:02Z" data-provider="headerData" finished-at="2021-04-12T13:37:05Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[De'Longhi BCO 410]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[product-description-tab]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[product-description]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[The De'Longhi BCO 410 is a 15 bar espresso/filter coffee machine that will ensure you get the perfect coffee experience, regardless of your tastes. Able to make 10 cups of filter coffee or individual espressos (either via ground coffee or with "Easy Serving Espresso" pods), the BCO 410 is a versatile and high-quality machine. The espresso portion of the machine comes complete with a crema filter holder, adjustable steam emission, removable water reservoir and cup holder. The filter coffee portion of the machine comes complete with a jug warmer to ensure the coffee remains hot after brewing, frontal loading to make the machine incredibly easy to refill (both water and coffee) and a water filtration system to make your coffee taste that much better.]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[World's most advanced 7" tablet 1280x800 HD display with polarizing filter and anti-glare technology for rich color and deep contrast from any viewing angle Exclusive Dolby audio and dual-driver stereo speakers for immersive, virtual surround sound World's first tablet with dual-band, dual-antenna Wi-Fi for 40% faster downloads and streaming (compared to iPad 3) High performance 1.2 Ghz dual-core processor with Imagination PowerVR 3D graphics core for fast and fluid performance]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- validateHeaders -->
+        <test-method status="PASS" signature="validateHeaders(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:1, instance:com.atmecs.konakart.testscript.TestKonaKart@6f7fd0e6]" name="validateHeaders" duration-ms="323" started-at="2021-04-12T13:37:05Z" data-provider="headerData" finished-at="2021-04-12T13:37:05Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[De'Longhi BCO 410]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[product-specifications-tab]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[product-specifications]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[Add your product specifications here. By default, the Enterprise version of KonaKart displays the template based custom attributes.]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[Add your product specifications here. By default, the Enterprise version of KonaKart displays the template based custom attributes.]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- validateHeaders -->
+        <test-method status="PASS" signature="validateHeaders(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:1, instance:com.atmecs.konakart.testscript.TestKonaKart@6f7fd0e6]" name="validateHeaders" duration-ms="9447" started-at="2021-04-12T13:37:05Z" data-provider="headerData" finished-at="2021-04-12T13:37:15Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[De'Longhi BCO 410]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[product-reviews-tab]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[kk]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[orderBy]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[orderBy]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- validateHeaders -->
+        <test-method status="PASS" signature="closeBrowser()[pri:0, instance:com.atmecs.konakart.testscript.TestKonaKart@6f7fd0e6]" name="closeBrowser" is-config="true" duration-ms="1470" started-at="2021-04-12T13:37:15Z" finished-at="2021-04-12T13:37:16Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- closeBrowser -->
+      </class> <!-- com.atmecs.konakart.testscript.TestKonaKart -->
+    </test> <!-- Test -->
+  </suite> <!-- Suite -->
+</testng-results>
