@@ -14,10 +14,9 @@ import org.testng.Assert;
 
 import com.atmecs.konakart.constants.FileConstant;
 import com.atmecs.konakart.helpers.CommonUtility;
-import com.atmecs.konakart.testBase.TestBase;
 import com.atmecs.konakart.utils.ReadPropertiesFile;
 
-public class KonaKart extends TestBase {
+public class KonaKart {
 	Properties locators;
 	CommonUtility commonUtility;
 
