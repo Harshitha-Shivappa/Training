@@ -39,8 +39,9 @@ public class KonaKart {
 		if (header.equals(headerContent)) {
 			commonUtility.clickOnElement(locators.getProperty("loc_tab_name").replace("[xxxx]", tab));
 			if (locators.getProperty("loc_tab_name").replace("[xxxx]", tab).contains("reviews")) {
-				// commonUtility.clickOnElement(locators.getProperty("loc_star").replace("[xxxx]",locator));
+				commonUtility.clickOnElement(locators.getProperty("loc_star").replace("[xxxx]", locator));
 				validateReviews(coffeeDescription, kindleDescription);
+				validateStars(locator);
 			} else {
 				String actualContent = commonUtility
 						.getText(locators.getProperty("loc_description_name").replace("[xxxx]", locator));
@@ -50,8 +51,10 @@ public class KonaKart {
 		} else {
 			commonUtility.clickOnElement(locators.getProperty("loc_tab_name").replace("[xxxx]", tab));
 			if (locators.getProperty("loc_tab_name").replace("[xxxx]", tab).contains("reviews")) {
-				// commonUtility.clickOnElement(locators.getProperty("loc_star").replace("[xxxx]", locator));
+				commonUtility.clickOnElement(locators.getProperty("loc_star").replace("[xxxx]", locator));
+				
 				validateReviews(coffeeDescription, kindleDescription);
+				validateStars(locator);
 			} else {
 				String actualContent = commonUtility
 						.getText(locators.getProperty("loc_description_name").replace("[xxxx]", locator));
@@ -67,34 +70,68 @@ public class KonaKart {
 	}
 
 	public void validateReviews(String coffeeDescription, String kindleDescription) {
-		commonUtility.selectDropdown(kindleDescription,
-				locators.getProperty("loc_select").replace("[xxxx]", coffeeDescription));
-		List<Date> listDates = new ArrayList<>();
-		List<WebElement> elementList = commonUtility.getElements(locators.getProperty("loc_date"));
-		SimpleDateFormat dateFormatter = new SimpleDateFormat("EEE dd MMM yyyy");
-		for (WebElement we : elementList) {
-			if (!(we.getText().isEmpty()))
-				try {
-					listDates.add(dateFormatter.parse(we.getText()));
-				} catch (Exception e) {
-					System.out.println("Cannot convert date");
-					e.printStackTrace();
-				}
+		commonUtility.selectDropdown(kindleDescription,	locators.getProperty("loc_select").replace("[xxxx]", coffeeDescription));
+		if (kindleDescription.contains("Rating:")) {
+			int ele = commonUtility.getElementCount(locators.getProperty("loc_review_count"));
+			ArrayList<Integer> list = new ArrayList<>();
+			for (int i = 1; i <= ele; i++) {
+				String str = String.valueOf(i);
+				int star = commonUtility.getElementCount(locators.getProperty("loc_star_count").replace("xxxx", str));
+				list.add(star);
+			}
+			ArrayList<Integer> sorted = new ArrayList<>();
+			if (kindleDescription.equals("Rating: high to low")) {
+				sorted.addAll(list);
+				Collections.sort(sorted);
+				Collections.reverse(sorted);
+				Assert.assertEquals(list, sorted);
+				System.out.println("Validated Rating: high to low");
+			} else if (kindleDescription.equals("Rating: low to high")) {
+				sorted.addAll(list);
+				Collections.sort(sorted);
+				Assert.assertEquals(list, sorted);
+				System.out.println("Validated Rating: low to high");
+			}
 		}
-		ArrayList<Date> sortedList = new ArrayList<>();
-		for (Date s : listDates) {
-			sortedList.add(s);
+		if (kindleDescription.contains("Oldest") || kindleDescription.contains("recent")) {
+			List<Date> listDates = new ArrayList<>();
+			List<WebElement> elementList = commonUtility.getElements(locators.getProperty("loc_date"));
+			SimpleDateFormat dateFormatter = new SimpleDateFormat("EEE dd MMM yyyy");
+			for (WebElement we : elementList) {
+				if (!(we.getText().isEmpty()))
+					try {
+						listDates.add(dateFormatter.parse(we.getText()));
+					} catch (Exception e) {
+						System.out.println("Cannot convert date");
+						e.printStackTrace();
+					}
+			}
+			ArrayList<Date> sortedList = new ArrayList<>();
+			for (Date s : listDates) {
+				sortedList.add(s);
+			}
+			if (kindleDescription.equals("Oldest first")) {
+				Collections.sort(sortedList);
+				Assert.assertEquals(listDates, sortedList);
+				System.out.println("Validated Oldest first");
+			} else if (kindleDescription.equals("Most recent first")) {
+				Collections.sort(sortedList);
+				Collections.reverse(sortedList);
+				Assert.assertEquals(listDates, sortedList);
+				System.out.println("Validated Most recent first");
+			}
 		}
-		if (kindleDescription.equals("Oldest first")) {
+	}
 
-			Collections.sort(sortedList);
-			Assert.assertEquals(listDates, sortedList);
-			System.out.println("Oldest first: " + sortedList);
-		} else if (kindleDescription.equals("Most recent first")) {
-			Collections.sort(sortedList);
-			Collections.reverse(sortedList);
-			Assert.assertEquals(listDates, sortedList);
-			System.out.println("Most recent first: " + sortedList);
+	public void validateStars(String locator) {
+		char review = locator.charAt(locator.length() - 1);
+		int ele = commonUtility.getElementCount(locators.getProperty("loc_review_count"));
+		for (int i = 1; i <= ele; i++) {
+			String str = String.valueOf(i);
+			int star = commonUtility.getElementCount(locators.getProperty("loc_star_count").replace("xxxx", str));
+			int check = Character.getNumericValue(review);
+			Assert.assertEquals(star, check);
 		}
+		System.out.println("Validated stars");
 	}
 }
