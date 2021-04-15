@@ -239,4 +239,19 @@ public class CommonUtility {
 		}
 		return null;
 	}
+	
+	/**
+	 * the method is used for getting the count of elements of the locator
+	 * 
+	 * @param locator
+	 */
+	public int getElementCount(String locator) {
+		try {
+			return GetElementFromLocators.matchLocatorsAndFetchSize(locator, driver);
+		} catch (Exception exception) {
+			System.out.println("Unable to get size of element");
+			exception.printStackTrace();
+		}
+		return 0;
+	}
 }
