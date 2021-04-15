@@ -12,6 +12,7 @@ import org.openqa.selenium.WebElement;
 public class GetElementFromLocators {
 	static WebElement element;
 	static List<WebElement> elements;
+	static int count;
 
 	/**
 	 * method takes parameters as
@@ -69,5 +70,18 @@ public class GetElementFromLocators {
 			System.out.println("Invalid");
 		}
 		return elements;
+	}
+	
+	public static int matchLocatorsAndFetchSize(String locators, WebDriver driver) {
+		String locatorsArray[] = locators.split(";");
+		switch (locatorsArray[0].toLowerCase()) {
+		case "xpath":
+			count = driver.findElements(By.xpath(locatorsArray[1])).size();
+			break;
+
+		default:
+			System.out.println("Invalid");
+		}
+		return count;
 	}
 }
